@@ -1,3 +1,8 @@
+PATH
+  remote: akuma-client
+  specs:
+    akuma-client (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -196,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  akuma-client!
   brakeman
   dotenv-rails
   jsonapi-resources
