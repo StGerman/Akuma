@@ -11,6 +11,8 @@ module Akuma
 
     class Task < Base
     end
+    class Person < Base
+    end
 
     class Error < StandardError; end
   end
