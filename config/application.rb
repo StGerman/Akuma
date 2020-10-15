@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
-
+require 'dotenv'
 require 'rails'
 # Pick the frameworks you want:
 require 'active_model/railtie'
@@ -14,11 +14,14 @@ require 'action_mailer/railtie'
 # require "action_text/engine"
 require 'action_view/railtie'
 require 'action_cable/engine'
+require 'dotenv/load'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+
+Dotenv.load
 Bundler.require(*Rails.groups)
 
 module Akuma
