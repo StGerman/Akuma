@@ -9,6 +9,8 @@ gem 'dotenv-rails'
 gem 'jsonapi-resources'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
+gem 'rack-cors'
+gem 'rack-timeout'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 
 group :development, :test do
