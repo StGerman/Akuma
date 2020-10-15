@@ -16,11 +16,6 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.include JSONAPI::RSpec
-
-  # Support for documents with mixed string/symbol keys. Disabled by default.
-  config.jsonapi_indifferent_hash = true
-
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

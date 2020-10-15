@@ -1,14 +1,20 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Tasks", type: :request do
-  describe "tasks#index" do
+RSpec.describe 'Tasks', type: :request do
+  describe 'tasks#index' do
   end
-  describe "tasks#create" do
+
+  describe 'tasks#create' do
   end
-  describe "tasks#show" do
+
+  describe 'tasks#show' do
   end
-  describe "tasks#update" do
+
+  describe 'tasks#update' do
   end
-  describe "tasks#destroy" do
+
+  describe 'tasks#destroy' do
   end
 end
