@@ -19,10 +19,13 @@ db:setup
 db:structure:dump
 db:structure:load
 db:version
+jsonapi:resources:check_upgrade
 log:clear
 middleware
 restart
 secret
+spec
+spec:models
 stats
 time:zones
 tmp:clear

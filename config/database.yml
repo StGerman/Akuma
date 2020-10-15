@@ -11,8 +11,8 @@ development:
   database: akuma_development
 
 test:
-  <<: *default
-  database: akuma_test
+  adapter: sqlite3
+  database: ":memory:"
 
 production:
   adapter: postgresql
