@@ -8,6 +8,6 @@ class Task < ApplicationRecord
 
   Action::KINDS.each do |kind|
     has_one :"#{kind}_action", -> { where(kind: kind) }, class_name: 'Action', inverse_of: :task
-    has_one :"person_#{kind}", through: :"#{kind}_action", class_name: 'Person', source: :person
+    has_one :"#{kind}_person", through: :"#{kind}_action", class_name: 'Person', source: :person
   end
 end
