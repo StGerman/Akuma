@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 FactoryBot.factories.map(&:name).each do |factory_name|

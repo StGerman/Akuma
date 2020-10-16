@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_092531) do
   create_table "actions", force: :cascade do |t|
     t.bigint "person_id"
     t.bigint "task_id"
-    t.text "kind"
+    t.integer "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id", null: false

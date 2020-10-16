@@ -5,7 +5,7 @@ class CreateActions < ActiveRecord::Migration[6.0]
     create_table :actions do |t|
       t.references :person
       t.references :task
-      t.text :kind
+      t.integer :kind
 
       t.timestamps
     end
