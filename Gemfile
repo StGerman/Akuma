@@ -8,7 +8,7 @@ ruby '2.7.1'
 gem 'akuma-client', path: 'akuma-client'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'dry-monads'
-gem 'jsonapi-resources'
+gem 'jsonapi-resources', '0.9.11' # TODO: Documentation works find for this version
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rack-cors'

@@ -12,6 +12,10 @@ module Akuma
     class Task < Base
     end
     class Person < Base
+      has_one :assignment
+    end
+    class Assignment < Base
+      belongs_to :person
     end
 
     class Error < StandardError; end

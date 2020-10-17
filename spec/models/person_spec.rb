@@ -3,7 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Person, type: :model do
-  describe 'can pick a new task'
+  describe 'can pick a new task' do
+  end
+
   describe 'can resolve a task'
   describe 'can put it on hold'
   describe 'can create new tasks'
