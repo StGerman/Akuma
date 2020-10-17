@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :assignment do
-    assigne { association :person }
-    task
+    assigne { association(:person) }
+    task { create(:task) }
   end
 end

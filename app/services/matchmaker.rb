@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Matchmaker
-  def self.find_task(_assigment)
-    Task.unassigned.first
+  def self.find_task(assigment)
+    # binding.pry
+    assigment.task = Task.unassigned.first!
   end
 end

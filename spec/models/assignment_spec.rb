@@ -3,5 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Assignment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:assignment) { described_class.new(assigne: person) }
+
+  let(:person) { FactoryBot.create(:person) }
+
+  before { FactoryBot.create(:task) }
+
+  it { expect { assignment.save }.to change { person.tasks.count }.by(1) }
 end
