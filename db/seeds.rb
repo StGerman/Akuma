@@ -11,6 +11,7 @@
 MOVIES = %w[Dune HarryPotter Lebowski].freeze
 
 puts 'delete data...'
+Affiliation.delete_all
 Assignment.delete_all
 Task.delete_all
 Category.delete_all
