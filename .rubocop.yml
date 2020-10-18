@@ -10,3 +10,6 @@ Style/Documentation:
 
 RSpec/EmptyExampleGroup:
   Enabled: false
+
+Rails/Output:
+  Enabled: false

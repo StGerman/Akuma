@@ -9,19 +9,19 @@ FactoryBot.define do
     trait :dune do
       title { Faker::Books::Dune.saying }
       description { Faker::Books::Dune.quote }
-      category { Category.find_or_create_by!(name: 'dune') }
+      category { Category.find_or_create_by!(name: 'Dune') }
     end
 
     trait :harry_potter do
       title { Faker::Movies::HarryPotter.quote }
       description { Faker::Movies::HarryPotter.quote }
-      category { Category.find_or_create_by!(name: 'harry_potter') }
+      category { Category.find_or_create_by!(name: 'HarryPotter') }
     end
 
     trait :lebowski do
       title { Faker::Movies::Lebowski.quote }
       description { Faker::Movies::Lebowski.quote }
-      category { Category.find_or_create_by!(name: 'lebowski') }
+      category { Category.find_or_create_by!(name: 'Lebowski') }
     end
   end
 end

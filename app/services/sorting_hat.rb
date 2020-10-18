@@ -10,8 +10,9 @@ class SortingHat
     @train_batch = train_batch
   end
 
-  def call(tasks)
-    catigories.each { |cat| ClassificationModel.add_category(cat.id) }
-    tasks.to_s
+  def call(_tasks)
+    catigories.each do |cat|
+      ClassificationModel.add_category(cat.id)
+    end
   end
 end
