@@ -6,3 +6,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Movies = ['Dune', 'HarryPotter', 'Lebowski'].freeze
+
+Assignment.delete_all
+Task.delete_all
+Category.delete_all
+
+Movies.each do |movie|
+  cat = Category.create!(name: movie)
+  FactoryBot.create_list(:task, 50, movie.underscore.to_sym)
+end
