@@ -14,6 +14,7 @@ gem 'puma', '~> 4.1'
 gem 'rack-cors'
 # gem 'rack-timeout', group: 'production'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'jsonapi.rb'
 
 group :development, :test do
   gem 'brakeman'

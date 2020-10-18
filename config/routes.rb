@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  jsonapi_resources :tasks
-  jsonapi_resources :people do
-    jsonapi_resource :assignments
+  resources :people do
+    resources :assignments, only: [:create]
+    resources :tasks
   end
+
+  # resources :tasks
 end
