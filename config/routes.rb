@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   jsonapi_resources :tasks
-  jsonapi_resources :people
-  jsonapi_resources :assignments
+  jsonapi_resources :people do
+    jsonapi_resource :assignments
+  end
 end
