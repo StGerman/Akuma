@@ -17,7 +17,7 @@ Category.delete_all
 
 puts 'populate data...'
 MOVIES.each do |movie|
-  Category.create!(name: movie)
+  Category.create!(name: movie, suggest: true)
   puts "- #{movie}"
   FactoryBot.create_list(:task, 50, movie.underscore.to_sym)
 end

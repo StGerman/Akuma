@@ -3,7 +3,7 @@
 class SortingHat
   attr_accessor :categories, :train_batch, :model
 
-  def initialize(categories: Category.all, train_batch: Task.all, model: OmniCat::Classifiers::Bayes.new)
+  def initialize(categories: Category.where(suggest: true), train_batch: Task.all, model: OmniCat::Classifiers::Bayes.new)
     @categories = categories
     @train_batch = train_batch
     @model = model
