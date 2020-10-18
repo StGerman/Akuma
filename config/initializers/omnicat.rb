@@ -13,3 +13,12 @@ OmniCat.configure do |config|
     plus: [/[\p{L}\-0-9]{2,}/, /[!?]/, /[:)(;\-|]{2,3}/]
   }
 end
+
+# fix frozen_string_literal error
+module OmniCat
+  class Doc
+    def minus_tokens
+      @content
+    end
+  end
+end
