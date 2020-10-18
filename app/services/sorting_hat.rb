@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
 class SortingHat
-  attr_accessor :categories, :train_batch, :model
+  attr_reader :data, :model
 
-  def initialize(
-    categories: Category.where(suggest: true),
-    train_batch: Task.all,
-    model: OmniCat::Classifiers::Bayes.new
-  )
-    @categories = categories
-    @train_batch = train_batch
+  delegate :categories, :batch, to: :data
+
+  def initialize(data: TrainingData.new, model: OmniCat::Classifiers::Bayes.new)
+    @data = data
     @model = model
 
     train
@@ -17,15 +14,15 @@ class SortingHat
 
   def call(task)
     result = model.classify(task.to_s)
-    # for many-to-many relation better use `result.scores.map { |_, res| [res.key, res.percentage] }.to_h`
-    result.top_score.key
+    result.scores.map do |slug, res|
+      { category_slug: slug, value: res.percentage }
+    end
   end
 
   def train
     categories.each do |cat|
       model.add_category(cat.slug)
-      batch = train_batch.where(category: cat).map(&:to_s)
-      model.train_batch(cat.slug, batch)
+      model.train_batch(cat.slug, batch[cat.slug])
     end
   end
 end
