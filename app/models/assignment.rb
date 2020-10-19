@@ -2,10 +2,10 @@
 
 class Assignment < ApplicationRecord
   belongs_to :task
-  belongs_to :assigne, class_name: 'Person'
+  belongs_to :assignee, class_name: 'Person'
 
   validates :task, presence: true
-  validates :assigne, presence: true
+  validates :assignee, presence: true
 
-  before_validation -> { Matchmaker.find_task(self) }
+  before_validation -> { Copilot.new(assignment: self).find_task }
 end

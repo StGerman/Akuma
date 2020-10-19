@@ -4,24 +4,25 @@ FactoryBot.define do
   factory :task do
     title { Faker::Lorem.sentence }
     description { Faker::Lorem.sentence }
-    category { Category.find_or_create_by!(name: 'lorem') }
 
-    trait :dune do
-      title { Faker::Books::Dune.saying }
-      description { Faker::Books::Dune.quote }
-      category { Category.find_or_create_by!(name: 'Dune') }
+    { dune_category: Faker::Books::Dune,
+      harry_potter_category: Faker::Movies::HarryPotter,
+      lebowski_category: Faker::Movies::Lebowski }.each do |(category_type, faker)|
+      trait category_type do
+        title { faker.quote }
+        description { faker.quote }
+        affiliations { [association(:affiliation, category_type)] }
+      end
     end
 
-    trait :harry_potter do
-      title { Faker::Movies::HarryPotter.quote }
-      description { Faker::Movies::HarryPotter.quote }
-      category { Category.find_or_create_by!(name: 'HarryPotter') }
-    end
-
-    trait :lebowski do
-      title { Faker::Movies::Lebowski.quote }
-      description { Faker::Movies::Lebowski.quote }
-      category { Category.find_or_create_by!(name: 'Lebowski') }
+    { dune_person: Faker::Books::Dune,
+      harry_potter_person: Faker::Movies::HarryPotter,
+      lebowski_person: Faker::Movies::Lebowski }.each do |(person_type, faker)|
+      trait person_type do
+        title { faker.quote }
+        description { faker.quote }
+        assignments { [association(:assignment, person_type)] }
+      end
     end
   end
 end
