@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :affiliation do
     value { 1 }
     task
+    category
 
     trait :dune do
       category { Category.find_or_create_by!(name: 'Dune') }
