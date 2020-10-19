@@ -5,7 +5,7 @@ class SortingHat
 
   delegate :categories, :batch, to: :data
 
-  def initialize(data: , model: OmniCat::Classifiers::Bayes.new)
+  def initialize(data:, model: OmniCat::Classifiers::Bayes.new)
     @data = data
     @model = model
 

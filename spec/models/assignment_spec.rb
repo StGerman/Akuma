@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Assignment, type: :model do
-  subject(:assignment) { described_class.new(assigne: person) }
+  subject(:assignment) { described_class.new(assignee: person) }
 
   let(:person) { FactoryBot.create(:person) }
 
