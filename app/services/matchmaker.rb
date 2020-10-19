@@ -12,7 +12,7 @@ class Matchmaker
 
   def find_task
     assignment.task ||= if assignment.assignee.suggest?
-                          Task.unassigned.second!
+                          recommendations.first
                         else
                           Task.unassigned.first!
                         end
@@ -20,7 +20,7 @@ class Matchmaker
 
   private
 
-  def recommend
-    Task.unassigned.limit(limit)
+  def recommendations
+    Task.unassigned.limit(limit).map { |t| TaskFit.new(task: t, person: assignment.assignee) }.sort
   end
 end

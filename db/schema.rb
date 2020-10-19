@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2020_10_19_134624) do
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "affilatable_id"
-    t.string "affilatable_type"
-    t.index ["affilatable_type", "affilatable_id"], name: "index_affiliations_on_affilatable_type_and_affilatable_id"
+    t.integer "affiliatable_id"
+    t.string "affiliatable_type"
+    t.index ["affiliatable_type", "affiliatable_id"], name: "index_affiliations_on_affiliatable_type_and_affiliatable_id"
     t.index ["task_id"], name: "index_affiliations_on_task_id"
   end
 

@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
-  has_many :affiliated_categories, as: :affilatable, dependent: :destroy, class_name: 'Affiliation'
-  has_many :categories, through: :affiliated_categories
-
-  has_many :affiliated_people, as: :affilatable, dependent: :destroy, class_name: 'Affiliation'
+  has_many :affiliations, dependent: :destroy
 
   has_many :actions, dependent: :destroy
   has_many :assignments, dependent: :destroy

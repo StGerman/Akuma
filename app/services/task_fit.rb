@@ -3,25 +3,22 @@
 class TaskFit
   include Comparable
 
-  attr_reader :task, :person
+  attr_reader :task, :person, :affiliation
 
-  delegate :affiliated_people, :create_at, to: :task
+  delegate :created_at, to: :task
 
   def initialize(task:, person:)
     @task = task
     @person = person
+    @affiliation = task.affiliations.find_by(affiliatable: person)
   end
 
   def coefficient
-    @coefficient ||= if affiliated_people.where(affilatable: person).any?
-                       affiliated_people.where(affilatable: person).first.value || 0
-                     else
-                       0
-                     end
+    @coefficient ||= (affiliation ? (affiliation.value || 0.0) : 0.0) + 1.0
   end
 
   def life_time
-    @life_time ||= (Time.zone.now - create_at)
+    @life_time ||= (Time.zone.now - created_at)
   end
 
   def fit

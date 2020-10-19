@@ -13,7 +13,7 @@ namespace :affiliation do
       results.each do |r|
         person = Person.find_by!(slug: r[:category_slug])
         value  = r[:value]
-        Affiliation.find_or_initialize_by(affilatable: person, task: task).update!(value: value)
+        Affiliation.find_or_initialize_by(affiliatable: person, task: task).update!(value: value)
       end
     end
   end
