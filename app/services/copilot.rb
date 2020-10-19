@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Matchmaker
+class Copilot
   delegate :task=, :assignee, to: :assignment
 
   attr_reader :assignment, :limit
