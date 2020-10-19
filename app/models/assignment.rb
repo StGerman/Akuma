@@ -7,5 +7,5 @@ class Assignment < ApplicationRecord
   validates :task, presence: true
   validates :assignee, presence: true
 
-  before_validation -> { Matchmaker.find_task(self) }
+  before_validation -> { Matchmaker.new(assignment: self).find_task }
 end

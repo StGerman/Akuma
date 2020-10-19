@@ -5,18 +5,22 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     description { Faker::Lorem.sentence }
 
-    %i[dune_category harry_potter_category lebowski_category].each do |category_type|
+    { dune_category: Faker::Books::Dune,
+      harry_potter_category: Faker::Movies::HarryPotter,
+      lebowski_category: Faker::Movies::Lebowski }.each do |(category_type, faker)|
       trait category_type do
-        title { Faker::Books::Dune.saying }
-        description { Faker::Books::Dune.quote }
+        title { faker.quote }
+        description { faker.quote }
         affiliations { [association(:affiliation, category_type)] }
       end
     end
 
-    %i[dune_person harry_potter_person lebowski_person].each do |person_type|
+    { dune_person: Faker::Books::Dune,
+      harry_potter_person: Faker::Movies::HarryPotter,
+      lebowski_person: Faker::Movies::Lebowski }.each do |(person_type, faker)|
       trait person_type do
-        title { Faker::Books::Dune.saying }
-        description { Faker::Books::Dune.quote }
+        title { faker.quote }
+        description { faker.quote }
         assignments { [association(:assignment, person_type)] }
       end
     end
