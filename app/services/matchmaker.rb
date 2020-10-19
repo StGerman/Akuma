@@ -2,6 +2,6 @@
 
 class Matchmaker
   def self.find_task(assigment)
-    assigment.task = Task.unassigned.first!
+    assigment.task ||= Task.unassigned.first!
   end
 end

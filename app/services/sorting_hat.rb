@@ -5,7 +5,7 @@ class SortingHat
 
   delegate :categories, :batch, to: :data
 
-  def initialize(data: TrainingData.new, model: OmniCat::Classifiers::Bayes.new)
+  def initialize(data: , model: OmniCat::Classifiers::Bayes.new)
     @data = data
     @model = model
 
@@ -24,5 +24,6 @@ class SortingHat
       model.add_category(cat.slug)
       model.train_batch(cat.slug, batch[cat.slug])
     end
+    true
   end
 end

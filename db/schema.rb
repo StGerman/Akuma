@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_104644) do
+ActiveRecord::Schema.define(version: 2020_10_19_134624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,23 +29,21 @@ ActiveRecord::Schema.define(version: 2020_10_19_104644) do
 
   create_table "affiliations", force: :cascade do |t|
     t.integer "value"
-    t.bigint "category_id", null: false
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "affilatable_id", null: false
     t.string "affilatable_type", null: false
     t.index ["affilatable_type", "affilatable_id"], name: "index_affiliations_on_affilatable_type_and_affilatable_id", unique: true
-    t.index ["category_id"], name: "index_affiliations_on_category_id"
     t.index ["task_id"], name: "index_affiliations_on_task_id"
   end
 
   create_table "assignments", force: :cascade do |t|
-    t.integer "assigne_id"
+    t.integer "assignee_id"
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["assigne_id"], name: "index_assignments_on_assigne_id"
+    t.index ["assignee_id"], name: "index_assignments_on_assignee_id"
     t.index ["task_id"], name: "index_assignments_on_task_id"
   end
 
@@ -63,6 +61,10 @@ ActiveRecord::Schema.define(version: 2020_10_19_104644) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "suggest", default: false, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_people_on_slug", unique: true
+    t.index ["suggest"], name: "index_people_on_suggest"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -72,7 +74,6 @@ ActiveRecord::Schema.define(version: 2020_10_19_104644) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "affiliations", "categories"
   add_foreign_key "affiliations", "tasks"
   add_foreign_key "assignments", "tasks"
 end

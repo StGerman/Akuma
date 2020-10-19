@@ -6,4 +6,6 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   slug :name
+
+  scope :suggestable, -> { where(suggest: true) }
 end
