@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_213600) do
+ActiveRecord::Schema.define(version: 2020_10_19_104644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2020_10_18_213600) do
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "affilatable_id", null: false
+    t.string "affilatable_type", null: false
+    t.index ["affilatable_type", "affilatable_id"], name: "index_affiliations_on_affilatable_type_and_affilatable_id", unique: true
     t.index ["category_id"], name: "index_affiliations_on_category_id"
     t.index ["task_id"], name: "index_affiliations_on_task_id"
   end
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_213600) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug", null: false
+    t.string "slug"
     t.boolean "suggest"
     t.index ["name"], name: "index_categories_on_name", unique: true
     t.index ["slug"], name: "index_categories_on_slug", unique: true
