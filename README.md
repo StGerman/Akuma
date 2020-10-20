@@ -31,9 +31,8 @@ Start server with
 In rails console you can use `gem 'akuma-client'` to manage data.
 
   ```sh
-  # For example you cat assign task
+  # Akuma will automatically assign a most fitting task for person
   > Akuma::Client::Assign.where(person_id: 1).create
-  # Akuma will automatically assign most fitting task for person
   ```
 
 ## Task fit calculation
