@@ -39,7 +39,7 @@ In `rails console` you can use `gem 'akuma-client'` to manage data.
 
 ## Task fit calculation
 
-Akuma calculates affiliations for each person using the Naive Bayes algorithm. Akima will count `fit` coefficient as a prediction percentage for each person multiply on `life_time` of tasks. Tasks sorted for each person separately by `fit`. When creating assignments Copilot class chooses a oldest task with a maximum fit for the assignee person.
+Akuma calculates affiliations for each person using the Naive Bayes algorithm. Akima will count `fit` coefficient as a prediction percentage for each person multiply on `life_time` of tasks. Tasks sorted for each person separately by `fit`. When creating assignments Copilot class chooses the oldest task with a maximum fit for the assignee person.
 
 ## Next Steps
 

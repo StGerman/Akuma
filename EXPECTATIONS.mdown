@@ -44,6 +44,7 @@ Model for classification algorithm `class SortingHat`, training data collection 
 
 > Draft the task life sequence diagram for the 2 APIs.
 
+
 ## Proof of Concept
 
 > Let’s focus on the communication between the sources and Akuma, the task assigner, code a working implementation of the API collecting all tasks.
