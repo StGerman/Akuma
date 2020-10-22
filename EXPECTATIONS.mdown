@@ -1,0 +1,82 @@
+# Expectations
+
+> When you will be ready, we expect you to explain in detail how you understand the challenge for the business and how you want to solve it. We’d like to see the real code you write. Both matter equally: your approach and your code.
+
+When we working in high dynamic environment, the amount of information higher than we can handle in a moment. That's why companies like Facebook and Google use different ranking algorithms to reduce information noise and make user experience better.
+
+In SwitchUp inner users should be able to know what task should be done. That's why it is so important to give them the right tools, that can assist to choose tasks that fit them most.
+
+This project approach to made copilot task ranking algorithm to assist users make their work in more effective way.
+
+## Project approach
+
+> If task assignment was the first challenge assigned to you and if you had to implement the solution alone, how would you like to solve it?
+
+The main idea to build a ranking system for each user. That's allowing to create personal task list where user can assign tasks or remove tasks for list. Ranking algorithm Key metric is the amount of assigned tasks from top of the list and total number of rejected.
+
+> What would be your requirements? What would be the main milestones?
+
+1. Create the task list sorted by task age
+2. Add full-text search on top of the list
+3. Task auto-labeling by TF-IDF or other natural text processing categorization algorithm and add labels filter in list and tasks
+4. Add task categorization by a assignee to make personal task lists
+
+> How long would it take?
+
+2 weeks for the basic version and 1-2 weeks for code stabilization edge cases and feature improvements
+
+> More generally what is your favorite approach to tackle challenges ?
+
+I like fast deliver to productions and then incrementally atomics code improvements
+
+## Architecture design
+
+> If we make the assumption that all sources are able to call an API and that the back office front end is an independent brick, how would you design the solution?
+
+I prefer to use the JSON resources API rather then JSON:API standard.
+
+I will made the tasks endpoint for CRUD tasks with to additional singleton resource assign and reject
+
+> What are the components needed ?
+
+Model for classification algorithm `class SortingHat`, training data collection `class TrainData`, testing pipeline and ranking system `class Copilot` for user personal recommendations.
+
+> Draft the task life sequence diagram for the 2 APIs.
+
+## Proof of Concept
+
+> Let’s focus on the communication between the sources and Akuma, the task assigner, code a working implementation of the API collecting all tasks.
+Guidelines. At SwitchUp, API are built with Rails 6 API + JSON Api resources gem and follows JSON API conventions. However if you are not familiar with this gem, in the context of this test, you can follow your own preferences as long as it’s a JSON API.
+For the discussion: Which approach did you follow ? TDD ? BDD ? direct coding ?
+
+I using direct coding for fast draft realization, then wite some smoke tests for fast regression testing. When I get some mature realization prefer use end2end testing with cucumber scenarios.
+
+## Assignment Engine
+
+> What would be the first useful implementation of the rule engine to assign each task to a person, from a pool of people ?
+
+Suppose every user is a category. We need to train the categorization model for tasks to suggest which user should be assigned to the task.
+
+> How it could evolve (discussion: no code required) ?
+
+We need to checking how good the model for our users. How user filter and search for tasks. In the ideal model users don't use search and manual filtering and only assign top tasks from the personal list.
+
+> Optionally, you can draft a POC to show how it would work.
+
+## FrontEnd
+
+> Optionally, you can draft or code a POC the API required to communicate with the front end
+
+```ruby
+namespace :my do
+  resources :tasks do
+    resource :assign
+    resource :hold
+    resource :reject
+  end
+end
+```
+
+> Optionally, you can draft the design of the UI. How team members would see their tasks and interact with them?
+
+![UI Mobile Design](/doc/images/ui-draft.png "UI Mobile Design Draft")
