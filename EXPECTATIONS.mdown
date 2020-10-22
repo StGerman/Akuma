@@ -79,4 +79,4 @@ end
 
 > Optionally, you can draft the design of the UI. How team members would see their tasks and interact with them?
 
-![UI Mobile Design](/doc/images/ui-draft.png "UI Mobile Design Draft")
+![UI Mobile Design](/doc/images/ui-draft.png)

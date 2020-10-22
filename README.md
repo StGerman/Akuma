@@ -1,6 +1,6 @@
 # Akuma
 
-[expectation](expectation.mdown)
+[expectation](EXPECTATIONS.mdown)
 
 ## Demo Setup
 
